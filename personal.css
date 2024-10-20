@@ -11,7 +11,7 @@ body {
     margin: 0;
     padding: 0; */
     background-color: #f9f9f9;
-    color: #333;
+    color: black;
 }
 
 header {
@@ -172,9 +172,12 @@ input[type="text"],input[type="number"]::placeholder {
 
 .form-footer {
     text-align: right;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.next-session-btn {
+.next-session-btn,.prev-session-btn {
     padding: 10px 20px;
     background-color: #F47C48;
     color: white;
@@ -186,6 +189,6 @@ input[type="text"],input[type="number"]::placeholder {
 a{
     text-decoration: none;
 }
-.next-session-btn:hover {
+.next-session-btn:hover ,.prev-session-btn:hover{
     background-color: #e66b2e;
 }

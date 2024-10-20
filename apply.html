@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post a Job - ProfileShaper</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        .logo {
+            color: #FF5722;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        nav a {
+            margin-left: 15px;
+            text-decoration: none;
+            color: #333;
+        }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="number"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .salary-group {
+            display: flex;
+            gap: 10px;
+        }
+        .salary-group input {
+            flex: 1;
+        }
+        .editor-toolbar {
+            background-color: #f5f5f5;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+        .editor-toolbar button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+            margin-right: 5px;
+        }
+        .submit-btn {
+            background-color: #FF5722;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .submit-btn:hover {
+            background-color: #E64A19;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">ProfileShaper</div>
+        <nav>
+            <a href="home.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="select-templates.html">Templates</a>
+            <a href="job-search.html" style="color:orange">Feature Jobs & Internships</a>
+            <a href="#">English</a>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Post a job</h1>
+        <p>Find the best talent for your company</p>
+
+        <form>
+            <div class="form-group">
+                <label for="job-title">Job Title</label>
+                <input type="text" id="job-title" placeholder="Add job title, role vacancies etc">
+            </div>
+
+            <div class="form-group">
+                <label for="tags">Tags</label>
+                <input type="text" id="tags" placeholder="Add keyword tags, separated by commas">
+            </div>
+            
+
+            <div class="form-group">
+                <label for="job-role">Job Role</label>
+<select id="job-role">
+    <option value="">Select...</option>
+    <option value="software-developer">Software Developer</option>
+    <option value="data-analyst">Data Analyst</option>
+    <option value="project-manager">Project Manager</option>
+    <option value="ux-designer">UX Designer</option>
+    <option value="qa-engineer">QA Engineer</option>
+    <option value="devops-engineer">DevOps Engineer</option>
+    <option value="system-administrator">System Administrator</option>
+    <option value="business-analyst">Business Analyst</option>
+    <option value="web-developer">Web Developer</option>
+    <option value="network-engineer">Network Engineer</option>
+    <option value="other">Other</option>
+</select>
+
+            </div>
+
+            <div class="form-group">
+                <label>Salary</label>
+                <div class="salary-group">
+                    <input type="number" placeholder="Min Salary" min="0">
+                    <span> - </span> <!-- Separator -->
+                    <input type="number" placeholder="Max Salary" min="0">
+                </div>
+                
+                    <select>
+                        <option value="">Select...</option>
+                        <option value="usd">US Dollar (USD)</option>
+                        <option value="eur">Euro (EUR)</option>
+                        <option value="jpy">Japanese Yen (JPY)</option>
+                        <option value="gbp">British Pound (GBP)</option>
+                        <option value="aud">Australian Dollar (AUD)</option>
+                        <option value="cad">Canadian Dollar (CAD)</option>
+                        <option value="chf">Swiss Franc (CHF)</option>
+                        <option value="cny">Chinese Yuan (CNY)</option>
+                        <option value="inr">Indian Rupee (INR)</option>
+                        <option value="rub">Russian Ruble (RUB)</option>
+                        <option value="brl">Brazilian Real (BRL)</option>
+                        <option value="zar">South African Rand (ZAR)</option>
+                        <option value="other">Other</option>
+                    </select>
+                    
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="vacancies">Vacancies</label>
+                <input type="number" id="vacancies" placeholder="Enter number of vacancies" min="0">
+            </div>
+            
+
+            <div class="form-group">
+                <label for="job-level">Job Level</label>
+                <select id="job-level">
+                    <option value="">Select...</option>
+                    <option value="intern">Intern</option>
+                    <option value="junior">Junior</option>
+                    <option value="mid-level">Mid-Level</option>
+                    <option value="senior">Senior</option>
+                    <option value="lead">Lead</option>
+                    <option value="manager">Manager</option>
+                    <option value="director">Director</option>
+                    <option value="vp">Vice President</option>
+                    <option value="c-level">C-Level (CEO, CTO, etc.)</option>
+                    <option value="other">Other</option>
+                </select>
+                
+            </div>
+
+            <div class="form-group">
+                <label>Location</label>
+                <div class="salary-group">
+                    <select>
+                        <option value="">Country</option>
+                        <option value="afghanistan">Afghanistan</option>
+                        <option value="albania">Albania</option>
+                        <option value="algeria">Algeria</option>
+                        <option value="andorra">Andorra</option>
+                        <option value="angola">Angola</option>
+                        <option value="argentina">Argentina</option>
+                        <option value="armenia">Armenia</option>
+                        <option value="australia">Australia</option>
+                        <option value="austria">Austria</option>
+                        <option value="azerbaijan">Azerbaijan</option>
+                        <option value="bahamas">Bahamas</option>
+                        <option value="bahrain">Bahrain</option>
+                        <option value="bangladesh">Bangladesh</option>
+                        <option value="barbados">Barbados</option>
+                        <option value="belgium">Belgium</option>
+                        <option value="brazil">Brazil</option>
+                        <option value="canada">Canada</option>
+                        <option value="china">China</option>
+                        <option value="france">France</option>
+                        <option value="germany">Germany</option>
+                        <option value="india">India</option>
+                        <option value="italy">Italy</option>
+                        <option value="japan">Japan</option>
+                        <option value="mexico">Mexico</option>
+                        <option value="nigeria">Nigeria</option>
+                        <option value="south-africa">South Africa</option>
+                        <option value="spain">Spain</option>
+                        <option value="united-kingdom">United Kingdom</option>
+                        <option value="united-states">United States</option>
+                        <option value="other">Other</option>
+                    </select>
+                    
+                    <select>
+                        <option value="">City</option>
+                        <option value="new-york">New York</option>
+                        <option value="los-angeles">Los Angeles</option>
+                        <option value="chicago">Chicago</option>
+                        <option value="houston">Houston</option>
+                        <option value="phoenix">Phoenix</option>
+                        <option value="philadelphia">Philadelphia</option>
+                        <option value="san-antonio">San Antonio</option>
+                        <option value="san-diego">San Diego</option>
+                        <option value="dallas">Dallas</option>
+                        <option value="san-jose">San Jose</option>
+                        <option value="austin">Austin</option>
+                        <option value="jacksonville">Jacksonville</option>
+                        <option value="fort-worth">Fort Worth</option>
+                        <option value="columbus">Columbus</option>
+                        <option value="san-francisco">San Francisco</option>
+                        <option value="charlotte">Charlotte</option>
+                        <option value="indianapolis">Indianapolis</option>
+                        <option value="seattle">Seattle</option>
+                        <option value="denver">Denver</option>
+                        <option value="washington-dc">Washington, D.C.</option>
+                        <option value="boston">Boston</option>
+                        <option value="el-paso">El Paso</option>
+                        <option value="detroit">Detroit</option>
+                        <option value="nashville">Nashville</option>
+                        <option value="other">Other</option>
+                    </select>
+                    
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="job-description">Job Description</label>
+                <textarea id="job-description" rows="6" placeholder="Add your description..."></textarea>
+                <div class="editor-toolbar">
+                    <button type="button" title="Font Size">14</button>
+                    <button type="button" title="Text Format" style="font-weight: bold;">B</button>
+                    <button type="button" title="Italicize" style="font-style: italic;">I</button>
+                    <button type="button" title="Underline" style="text-decoration: underline;">U</button>
+                    <button type="button" title="Bullet List">•</button>
+                    <button type="button" title="Numbered List">1.</button>
+                    <button type="button" title="Insert Link">Link</button>
+                    <button type="button" title="Mention User">@</button>
+                </div>
+            </div>
+            
+
+            <button type="submit" class="submit-btn">Post Job</button>
+        </form>
+    </main>
+</body>
+</html>

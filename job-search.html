@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProfileShaper - Find Your Dream Job</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #FFE5D9;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+          background-color: white;
+          padding: 20px 0;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      
+      .logo h2 {
+          margin-left: 20px;
+          font-size: 24px;
+          color: #FF6B6B;
+      }
+      
+      nav ul {
+          list-style: none;
+          display: flex;
+      }
+      
+      nav ul li {
+          margin-right: 20px;
+      }
+      
+      nav ul li a {
+          text-decoration: none;
+          color: black;
+          font-size: 16px;
+      }
+      
+        .hero {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 4rem 0;
+        }
+
+        .hero-content {
+            flex: 1;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #333;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: #666;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        .search-container {
+            max-width: 600px;
+            position: relative;
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+        }
+
+        .search-form {
+            display: flex;
+            margin-bottom: 10px;
+        }
+
+        .search-input {
+            flex-grow: 1;
+            padding: 12px 20px;
+            font-size: 16px;
+            border: 2px solid #e0e0e0;
+            border-radius: 30px 0 0 30px;
+            transition: all 0.3s ease;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: #FF6B6B;
+            box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.1);
+        }
+
+        .search-btn {
+            background-color: #FF6B6B;
+            color: #ffffff;
+            border: none;
+            padding: 12px 25px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 0 30px 30px 0;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .search-btn:hover {
+            background-color: #FF8787;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .search-btn svg {
+            margin-right: 8px;
+        }
+
+        .recommendations {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background-color: white;
+            border: 1px solid #e0e0e0;
+            border-top: none;
+            border-radius: 0 0 10px 10px;
+            max-height: 200px;
+            overflow-y: auto;
+            display: none;
+            z-index: 10;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .recommendation-item {
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .recommendation-item:hover {
+            background-color: #f0f5ff;
+        }
+
+        .hero-image {
+            flex: 1;
+            text-align: right;
+            animation: fadeInRight 0.8s ease-out;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            
+        }
+
+        .hero-image img:hover {
+            transform: translateY(-5px);
+        }
+
+        .featured-jobs {
+            padding: 3rem 0;
+        }
+
+        .featured-jobs h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            text-align: center;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .job-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .job-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .job-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+
+        .job-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .job-company {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .company-logo {
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+        }
+
+        .job-card:hover .company-logo {
+            transform: scale(1.1);
+        }
+
+        .job-details {
+            display: flex;
+            justify-content: space-between;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .apply-btn {
+            display: block;
+            width: 100%;
+            background-color: #FF6B6B;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            margin-top: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .apply-btn:hover {
+            background-color: #FF8787;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .view-all {
+            display: block;
+            text-align: center;
+            margin-top: 2rem;
+            color: #FF6B6B;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        .view-all:hover {
+            color: #FF8787;
+            transform: translateY(-2px);
+        }
+
+        .companies {
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .companies h2 {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .company-logos {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .company-logos img {
+            max-width: 120px;
+            height: auto;
+            margin: 1rem;
+            transition: all 0.3s ease;
+            filter: grayscale(100%);
+        }
+
+        .company-logos img:hover {
+            filter: grayscale(0%);
+            transform: scale(1.1);
+        }
+
+        footer {
+            background-color: #FF6B6B;
+            color: white;
+            padding: 3rem 0;
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .footer-section {
+            flex: 1;
+            margin-bottom: 2rem;
+            min-width: 200px;
+        }
+
+        .footer-section h3 {
+            color: #FFE5D9;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 0;
+            height: 2px;
+            background-color: #FFE5D9;
+            transition: width 0.3s ease;
+        }
+
+        .footer-section:hover h3::after {
+            width: 100%;
+        }
+
+        .footer-section ul {
+            list-style-type: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section ul li a {
+            color: #FFE5D9;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+            color: #ffffff;
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+
+        .social-icons a {
+            color: #FFE5D9;
+            margin: 0 10px;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: #ffffff;
+            transform: translateY(-3px);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .loading-spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #FF6B6B;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+        <h2>ProfileShaper</h2>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li ><a href="select-templates.html">Templates</a></li>
+            <li><a href="job-search.html" style="color: #FF6B6B;">Explore Jobs & Internships</a></li>
+            <li><p href="#">English</p></li>
+        </ul>
+    </nav>
+</header>
+
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Find a job that aligns with your interests and skills</h1>
+                    <p>Thousands of jobs from top companies are waiting for you</p>
+                    <div class="search-container">
+                        <form id="search-form" class="search-form">
+                            <input type="text" id="search-input" class="search-input" placeholder="Job title, keywords, or company" required>
+                            <button type="submit" class="search-btn">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="11" cy="11" r="8"/>
+                                    <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                                </svg>
+                                Search Jobs
+                            </button>
+                        
+                        </form>
+                        <div id="recommendations" class="recommendations"></div>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="img/job1.png" alt="Job search illustration">
+                </div>
+            </div>
+        </section>
+
+        <section class="featured-jobs">
+            <div class="container">
+                <h2>Featured Jobs</h2>
+                <div id="job-listings" class="job-cards">
+                    <!-- Job listings will be dynamically inserted here -->
+                </div>
+               
+            </div>
+        </section>
+        
+
+        <section class="companies">
+            <div class="container">
+                <h2>Top companies hiring now</h2>
+                <div class="company-logos">
+                    <img src="img/g1.png" alt="Google">
+                    <img src="img/g2.png" alt="Microsoft">
+                    <img src="img/g3.png" alt="Flipkart">
+                    <img src="img/g4.png" alt="YouTube">
+                    <img src="img/g5.png" alt="IBM">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                      <li><a href="home.html">Home</a></li>
+                      <li><a href="about.html">About</a></li>
+                      <li ><a href="select-templates.html">Templates</a></li>
+                      <li><a href="job-search.html">Explore Jobs & Internships</a></li>
+                      <li><p href="#">English</p></li>
+                  </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>For Job Seekers</h3>
+                    <ul>
+                        <li><a href="#">Browse Jobs</a></li>
+                        <li><a href="#">Career Advice</a></li>
+                        <li><a href="#">Resume Builder</a></li>
+                        <li><a href="#">Job Alerts</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>For Employers</h3>
+                    <ul>
+                        <li><a href="#">Post a Job</a></li>
+                        <li><a href="#">Search Resumes</a></li>
+                        <li><a href="#">Recruiting Solutions</a></li>
+                        <li><a href="#">Pricing</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                        <li><a href="#">Accessibility</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="social-icons">
+                    <a href="#" aria-label="Facebook">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                        </svg>
+                    </a>
+                    <a href="#" aria-label="Twitter">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+                        </svg>
+                    </a>
+                    <a href="#" aria-label="LinkedIn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                            <rect x="2" y="9" width="4" height="12"></rect>
+                            <circle cx="4" cy="4" r="2"></circle>
+                        </svg>
+                    </a>
+                    <a href="#" aria-label="Instagram">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                        </svg>
+                    </a>
+                </div>
+                <p>&copy; 2024 ProfileShaper. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const searchForm = document.getElementById('search-form');
+        const searchInput = document.getElementById('search-input');
+        const recommendationsContainer = document.getElementById('recommendations');
+        const jobListingsContainer = document.getElementById('job-listings');
+        const header = document.getElementById('header');
+
+        const jobTitles = [
+            'Software Engineer',
+            'Data Scientist',
+            'Product Manager',
+            'UX Designer',
+            'Marketing Specialist',
+            'Financial Analyst',
+            'Human Resources Manager',
+            'Sales Representative',
+            'Customer Support Specialist',
+            'Project Manager'
+        ];
+
+        const jobListings = {
+            'Software Engineer': [
+                {
+                    title: 'Senior Software Engineer',
+                    company: 'TechCorp Inc.',
+                    logo: '/placeholder.svg?height=30&width=30&text=TC',
+                    location: 'San Francisco, CA',
+                    jobType: 'Full-time'
+                },
+                {
+                    title: 'Full Stack Developer',
+                    company: 'WebSolutions LLC',
+                    logo: '/placeholder.svg?height=30&width=30&text=WS',
+                    location: 'New York, NY',
+                    jobType: 'Full-time'
+                },
+                {
+                    title: 'Mobile App Developer',
+                    company: 'AppInnovate',
+                    logo: '/placeholder.svg?height=30&width=30&text=AI',
+                    location: 'Austin, TX',
+                    jobType: 'Contract'
+                }
+            ],
+            'Data Scientist': [
+                {
+                    title: 'Senior Data Scientist',
+                    company: 'DataCo Analytics',
+                    logo: '/placeholder.svg?height=30&width=30&text=DA',
+                    location: 'Boston, MA',
+                    jobType: 'Full-time'
+                },
+                {
+                    title: 'Machine Learning Engineer',
+                    company: 'AI Innovations',
+                    logo: '/placeholder.svg?height=30&width=30&text=AII',
+                    location: 'Seattle, WA',
+                    jobType: 'Full-time'
+                },
+                {
+                    title: 'Data Analyst',
+                    company: 'Tech Giants Inc.',
+                    logo: '/placeholder.svg?height=30&width=30&text=TG',
+                    location: 'Mountain View, CA',
+                    jobType: 'Part-time'
+                }
+            ],
+            'Product Manager': [
+                {
+                    title: 'Senior Product Manager',
+                    company: 'InnovateTech',
+                    logo: '/placeholder.svg?height=30&width=30&text=IT',
+                    location: 'San Jose, CA',
+                    jobType: 'Full-time'
+                },
+                {
+                    title: 'Associate Product Manager',
+                    company: 'StartUp Co.',
+                    logo: '/placeholder.svg?height=30&width=30&text=SC',
+                    location: 'New York, NY',
+                    jobType: 'Full-time'
+                },
+                {
+                    title: 'Technical Product Manager',
+                    company: 'SoftwareSolutions',
+                    logo: '/placeholder.svg?height=30&width=30&text=SS',
+                    location: 'Chicago, IL',
+                    jobType: 'Contract'
+                }
+            ],
+            'UX Designer': [
+                {
+                    title: 'Senior UX Designer',
+                    company: 'DesignMasters',
+                    logo: '/placeholder.svg?height=30&width=30&text=DM',
+                    location: 'San Francisco, CA',
+                    jobType: 'Full-time'
+                },
+                {
+                    title: 'UI/UX Designer',
+                    company: 'CreativeTech',
+                    logo: '/placeholder.svg?height=30&width=30&text=CT',
+                    location: 'Los Angeles, CA',
+                    jobType: 'Full-time'
+                },
+                {
+                    title: 'Interaction Designer',
+                    company: 'UserFirst Inc.',
+                    logo: '/placeholder.svg?height=30&width=30&text=UF',
+                    location: 'New York, NY',
+                    jobType: 'Contract'
+                }
+            ],
+            'Marketing Specialist': [
+                {
+                    title: 'Digital Marketing Manager',
+                    company: 'MarketPro',
+                    logo: '/placeholder.svg?height=30&width=30&text=MP',
+                    location: 'Chicago, IL',
+                    jobType: 'Full-time'
+                },
+                {
+                    title: 'Content Marketing Specialist',
+                    company: 'ContentKings',
+                    logo: '/placeholder.svg?height=30&width=30&text=CK',
+                    location: 'Austin, TX',
+                    jobType: 'Full-time'
+                },
+                {
+                    title: 'Social Media Manager',
+                    company: 'SocialBuzz',
+                    logo: '/placeholder.svg?height=30&width=30&text=SB',
+                    location: 'Miami, FL',
+                    jobType: 'Part-time'
+                }
+            ],
+            'Human Resources Manager': [
+                {
+                    title: 'HR Director',
+                    company: 'PeopleFirst Corp',
+                    logo: '/placeholder.svg?height=30&width=30&text=PF',
+                    location: 'New York, NY',
+                    jobType: 'Full-time'
+                },
+                {
+                    title: 'Talent Acquisition Manager',
+                    company: 'TalentHunters',
+                    logo: '/placeholder.svg?height=30&width=30&text=TH',
+                    location: 'San Francisco, CA',
+                    jobType: 'Full-time'
+                },
+                {
+                    title: 'Employee Relations Specialist',
+                    company: 'WorkplaceSolutions',
+                    logo: '/placeholder.svg?height=30&width=30&text=WS',
+                    location: 'Chicago, IL',
+                    jobType: 'Contract'
+                }
+            ]
+        };
+
+        searchInput.addEventListener('input', function() {
+            const inputValue = this.value.toLowerCase();
+            if (inputValue.length > 0) {
+                const filteredJobs = jobTitles.filter(job => 
+                    job.toLowerCase().includes(inputValue)
+                );
+                showRecommendations(filteredJobs);
+            } else {
+                hideRecommendations();
+            }
+        });
+
+        searchInput.addEventListener('focus', function() {
+            if (this.value.length > 0) {
+                showRecommendations(jobTitles);
+            }
+        });
+
+        document.addEventListener('click', function(e) {
+            if (!searchInput.contains(e.target) && !recommendationsContainer.contains(e.target)) {
+                hideRecommendations();
+            }
+        });
+
+        function showRecommendations(jobs) {
+            recommendationsContainer.innerHTML = '';
+            jobs.forEach(job => {
+                const div = document.createElement('div');
+                div.classList.add('recommendation-item');
+                div.textContent = job;
+                div.addEventListener('click', function() {
+                    searchInput.value = job;
+                    hideRecommendations();
+                    searchJobs(job);
+                });
+                recommendationsContainer.appendChild(div);
+            });
+            recommendationsContainer.style.display = 'block';
+        }
+
+        function hideRecommendations() {
+            recommendationsContainer.style.display = 'none';
+        }
+
+        searchForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            searchJobs(searchInput.value);
+        });
+
+        function searchJobs(searchTerm) {
+            console.log('Searching for:', searchTerm);
+            const jobs = jobListings[searchTerm] || [];
+            displayJobListings(jobs);
+        }
+
+        function displayJobListings(jobs) {
+            jobListingsContainer.innerHTML = '';
+            jobs.forEach((job, index) => {
+                const jobCard = document.createElement('div');
+                jobCard.classList.add('job-card');
+                jobCard.innerHTML = `
+                    <div class="job-title">${job.title}</div>
+                    <div class="job-company">
+                        <img src="${job.logo}" alt="${job.company} logo" class="company-logo">
+                        <span>${job.company}</span>
+                    </div>
+                    <div class="job-details">
+                        <span>${job.location}</span>
+                        <span>${job.jobType}</span>
+                    </div>
+                   <a href=apply.html style="text-decoration:none" ><button class="apply-btn">Apply Now</button></a>
+                `;
+                setTimeout(() => {
+                    jobCard.classList.add('fade-in');
+                    jobListingsContainer.appendChild(jobCard);
+                }, index * 100);
+            });
+        }
+
+        // Initially display Software Engineer jobs
+        displayJobListings(jobListings['Software Engineer']);
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>
