@@ -1,198 +1,203 @@
-/* General Reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: Arial, sans-serif;
 }
 
 body {
-    font-family: 'Arial', sans-serif;
-    line-height: 1.6;
-    background-color: #fef5f3;
+    background-color: #f9f9f9;
     color: #333;
+    line-height: 1.6;
 }
 
-/* Navigation Bar */
-.navbar {
-    background-color: #333;
-    color: #fff;
+header {
+    background-color: #fff;
     padding: 10px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.navbar .logo h1 {
-    font-size: 20px;
-    color: #fff;
-}
-
-.menu-icon {
-    font-size: 28px;
-    cursor: pointer;
-}
-
-/* Header Section */
-.header {
-    background-color: #f9e8e3;
-    padding: 50px;
-    text-align: left;
-    position: relative;
-}
-
-.header-content h2 {
-    font-size: 36px;
-    color: #ff6b35;
-    margin-bottom: 20px;
-}
-
-.header-content ul {
-    list-style-type: disc;
-    margin-bottom: 20px;
-}
-
-.header-content li {
-    font-size: 16px;
-    margin-bottom: 10px;
-}
-
-.create-btn {
-    background-color: #ff6b35;
-    color: white;
-    border: none;
-    padding: 12px 24px;
-    font-size: 16px;
-    border-radius: 25px;
-    cursor: pointer;
-}
-
-/* Services Section */
-.services-section {
+nav ul {
     display: flex;
-    padding: 50px 20px;
-    align-items: center;
+    list-style: none;
 }
 
-.services-section .service-text {
-    flex: 1;
+nav ul li {
+    margin: 0 15px;
 }
 
-.services-section .service-text h3 {
-    font-size: 28px;
-    margin-bottom: 20px;
+nav ul li a {
+    color: #333;
+    font-weight: bold;
 }
 
-.services-section .service-text p {
-    font-size: 18px;
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
-.services-section .service-image {
-    flex: 1;
-}
-
-.services-section .service-image img {
-    max-width: 100%;
-    border-radius: 10px;
-}
-
-/* Benefits Section */
-.benefits-section {
-    background-color: #fdf3ef;
-    padding: 50px 20px;
+/* Hero Section */
+.hero {
+    background-color: #fdeae1;
+    padding: 50px 0;
     text-align: center;
 }
 
-.benefits-section h3 {
-    font-size: 28px;
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.hero ul {
+    list-style-type: none;
     margin-bottom: 30px;
 }
 
-.benefits-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+.hero ul li {
+    font-size: 1.2rem;
+    color: #333;
 }
 
-.benefit {
-    flex: 1;
-    max-width: 300px;
-    margin: 10px;
+.cta-button {
+    background-color: #ff6b35;
+    color: #fff;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1.2rem;
 }
 
-.benefit h4 {
-    font-size: 22px;
+.cta-button:hover {
+    background-color: #ff5a24;
+}
+
+/* Templates Section */
+.templates {
+    padding: 50px 0;
+    text-align: center;
+}
+
+.templates img {
+    max-width: 100%;
+}
+
+.templates h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.templates p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: #555;
+}
+
+/* Benefits Section */
+.benefits {
+    background-color: #fff;
+    padding: 50px 0;
+}
+
+.benefits h2 {
+    text-align: center;
+    font-size: 2rem;
+    color: #333;
+}
+
+.benefits h3 {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    color: #555;
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin: 0 auto;
+}
+
+.benefit-item {
+    text-align: center;
+}
+
+.benefit-item img {
+    max-width: 100px;
+    margin-bottom: 20px;
+}
+
+.benefit-item h4 {
+    font-size: 1.2rem;
     margin-bottom: 10px;
+    color: #333;
 }
 
-.benefit p {
-    font-size: 16px;
+.benefit-item p {
+    color: #555;
 }
 
 /* Testimonials Section */
-.testimonials-section {
-    background-color: #ff6b35;
-    color: white;
-    padding: 50px 20px;
+.testimonials {
+    background-color: #fdeae1;
+    padding: 50px 0;
     text-align: center;
 }
 
-.testimonial-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.testimonial {
-    flex: 1;
-    max-width: 300px;
-    background-color: white;
+.testimonials h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
     color: #333;
-    margin: 10px;
-    padding: 20px;
-    border-radius: 10px;
 }
 
-.testimonial p {
-    margin-bottom: 10px;
+.testimonial-item {
+    margin-bottom: 30px;
+}
+
+.testimonial-item p {
+    font-size: 1.2rem;
+    color: #555;
+}
+
+.testimonial-item h4 {
+    font-size: 1rem;
+    margin-top: 10px;
+    color: #333;
+}
+
+.testimonial-item span {
+    color: #ff6b35;
 }
 
 /* Footer */
-.footer {
+footer {
     background-color: #333;
-    color: white;
-    padding: 40px 20px;
+    color: #fff;
+    padding: 20px 0;
     text-align: center;
 }
 
-.footer-content {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+footer p {
+    margin-bottom: 20px;
 }
 
-.footer-left h4 {
-    font-size: 20px;
-}
-
-.footer-right ul {
-    list-style: none;
-    padding: 0;
-}
-
-.footer-right li {
-    margin-bottom: 10px;
-}
-
-.footer-right li a {
+.footer-links a {
     color: #fff;
+    margin: 0 10px;
     text-decoration: none;
 }
 
-.footer-right li a:hover {
-    text-decoration: underline;
-}
-
-.footer p {
-    margin-top: 20px;
-    font-size: 14px;
+a{
+    text-decoration: none;
 }

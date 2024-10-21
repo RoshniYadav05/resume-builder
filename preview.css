@@ -1,0 +1,88 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fbeaea;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.header h1 {
+    color: #f27d42;
+    font-size: 36px;
+    margin-bottom: 30px;
+}
+
+.content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.preview-section h2 {
+    color: #333;
+    font-size: 28px;
+}
+
+.preview-section p {
+    font-size: 16px;
+    color: #666;
+    margin: 15px 0;
+}
+
+.button-group {
+    margin: 20px 0;
+}
+
+.btn {
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin: 5px;
+    font-size: 16px;
+}
+
+.download-btn {
+    background-color: #ff7a42;
+    color: white;
+}
+
+.linkedin-btn {
+    background-color: #ff8a42;
+    color: white;
+}
+
+.jobs-btn {
+    background-color: #ff9b42;
+    color: white;
+}
+
+.resume-preview img {
+    width: 300px;
+    height: auto;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.back-btn {
+    margin-top: 20px;
+    background-color: #f27d42;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
